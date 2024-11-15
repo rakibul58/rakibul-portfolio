@@ -11,13 +11,21 @@ export default function Education() {
   const education = [
     {
       degree: "Bachelor of Science in Computer Science",
-      institution: "University Name",
-      period: "2018 - 2022",
-      achievements: [
-        "Graduated with First Class Honours",
-        "Led University coding club",
-        "Won 2 hackathons",
-      ],
+      institution: "International Islamic University, Chittagong",
+      period: "October 2019 - November 2024",
+      result: "CGPA: 3.709 / 4.0",
+    },
+    {
+      degree: "High School Certificate",
+      institution: "Government City College, Chittagong",
+      period: "2018 - 2019",
+      result: "GPA: 4.42 / 5.0",
+    },
+    {
+      degree: "Secondary School Certificate",
+      institution: "Nasirabad Government High School, Chittagong",
+      period: "2016 - 2017",
+      result: "GPA: 5.0 / 5.0",
     },
   ];
   return (
@@ -30,19 +38,16 @@ export default function Education() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <Accordion type="multiple" className="space-y-6">
+          <Accordion defaultValue={[`education-0`]} type="multiple" className="space-y-6">
             {education.map((edu, index) => (
               <AccordionItem key={index} value={`education-${index}`}>
-                <AccordionTrigger className="text-lg font-semibold">
-                  {edu.degree} at {edu.institution}
+                <AccordionTrigger className="text-xl font-semibold">
+                  {edu.degree}
                 </AccordionTrigger>
                 <AccordionContent>
+                  <p className="font-semibold text-lg">{edu.institution}</p>
                   <p className="text-muted-foreground">{edu.period}</p>
-                  <ul className="mt-2 space-y-1 list-disc pl-4 text-muted-foreground">
-                    {edu.achievements.map((achievement, i) => (
-                      <li key={i}>{achievement}</li>
-                    ))}
-                  </ul>
+                  <p className="">{edu.result}</p>
                 </AccordionContent>
               </AccordionItem>
             ))}
