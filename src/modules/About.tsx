@@ -1,17 +1,13 @@
-import {
-  Code2,
-  Target,
-  Sparkles,
-  Brain,
-  User,
-} from "lucide-react";
-import { motion } from "framer-motion";
+import { Code2, Target, Sparkles, Brain, User } from "lucide-react";
+import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs } from "@radix-ui/react-tabs";
 import { TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function About() {
+  const { scrollYProgress } = useViewportScroll();
+  const skillNameY = useTransform(scrollYProgress, [0, 1], ["100%", "-100%"]);
   const skills = {
     frontend: [
       { name: "React", level: 95 },
@@ -125,21 +121,36 @@ export default function About() {
                   </TabsList>
                   {Object.entries(skills).map(([category, categorySkills]) => (
                     <TabsContent key={category} value={category}>
-                      <div className="space-y-4">
-                        {categorySkills.map((skill, index) => (
-                          <motion.div
-                            key={index}
-                            className="space-y-2"
-                            whileHover={{ scale: 1.05 }}
-                          >
-                            <div className="flex justify-between">
-                              <span>{skill.name}</span>
-                              <span>{skill.level}%</span>
-                            </div>
-                            <Progress value={skill.level} />
-                          </motion.div>
-                        ))}
-                      </div>
+                      <motion.div
+                        initial={{ x: 20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        exit={{ x: -20, opacity: 0 }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        <div className="space-y-4">
+                          {categorySkills.map((skill, index) => (
+                            <motion.div
+                              key={index}
+                              className="space-y-2"
+                              whileHover={{ scale: 1.05 }}
+                              initial={{ y: Number(skillNameY), opacity: 0 }}
+                              animate={{
+                                y: 0,
+                                opacity: 1,
+                                transition: {
+                                  delay: index * 0.1,
+                                },
+                              }}
+                            >
+                              <div className="flex justify-between">
+                                <span>{skill.name}</span>
+                                <span>{skill.level}%</span>
+                              </div>
+                              <Progress value={skill.level} />
+                            </motion.div>
+                          ))}
+                        </div>
+                      </motion.div>
                     </TabsContent>
                   ))}
                 </Tabs>
