@@ -14,22 +14,25 @@ import { TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 export default function About() {
   const skills = {
     frontend: [
-      { name: "React/Next.js", level: 90 },
+      { name: "React", level: 95 },
+      { name: "Next.js", level: 80 },
+      { name: "JavaScript", level: 90 },
       { name: "TypeScript", level: 85 },
       { name: "Tailwind CSS", level: 90 },
       { name: "Redux", level: 80 },
+      { name: "TanStack Query", level: 80 },
     ],
     backend: [
       { name: "Node.js", level: 85 },
       { name: "Express", level: 85 },
       { name: "MongoDB", level: 80 },
+      { name: "Mongoose", level: 75 },
       { name: "Prisma", level: 75 },
+      { name: "PostgreSQL", level: 70 },
     ],
     tools: [
       { name: "Git", level: 90 },
-      { name: "Docker", level: 70 },
       { name: "AWS", level: 65 },
-      { name: "CI/CD", level: 75 },
     ],
   };
 
@@ -115,7 +118,7 @@ export default function About() {
                   Core Skills
                 </h3>
                 <Tabs defaultValue="frontend">
-                  <TabsList>
+                  <TabsList className="mb-6">
                     <TabsTrigger value="frontend">Frontend</TabsTrigger>
                     <TabsTrigger value="backend">Backend</TabsTrigger>
                     <TabsTrigger value="tools">Tools</TabsTrigger>
