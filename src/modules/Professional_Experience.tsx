@@ -10,7 +10,7 @@ import {
 export default function Professional_Experience() {
   const experience = [
     {
-      title: "Senior Full Stack Developer",
+      title: "Full Stack Developer",
       company: "Experiment Labs",
       period: "Apr 2023 - November 2024",
       description:
