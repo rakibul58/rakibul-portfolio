@@ -16,6 +16,7 @@ const Navbar = () => {
     { label: "Experience", scrollTo: "experience" },
     { label: "Education", scrollTo: "education" },
     { label: "Github Stats", scrollTo: "github-stats" },
+    { label: "Contact", scrollTo: "contact-section" },
   ];
 
   return (
