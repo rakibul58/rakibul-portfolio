@@ -1,6 +1,16 @@
 // GitHubStats.tsx
-import React, { useState, useEffect } from 'react';
-import { Star, Users, Code, GitFork, GitCommit, BookOpen, Activity } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import {
+  Star,
+  Users,
+  Code,
+  GitFork,
+  GitCommit,
+  BookOpen,
+  Activity,
+  Github,
+} from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface Repository {
   id: number;
@@ -50,15 +60,15 @@ interface UserData {
 
 const GitHubStats: React.FC<GitHubStatsProps> = ({ username }) => {
   const [stats, setStats] = useState<GitHubStats>({
-    repositories: '...',
-    totalStars: '...',
-    followers: '...',
-    following: '...',
-    totalForks: '...',
-    openIssues: '...',
+    repositories: "...",
+    totalStars: "...",
+    followers: "...",
+    following: "...",
+    totalForks: "...",
+    openIssues: "...",
     latestRepos: [],
     languages: [],
-    contributions: '...'
+    contributions: "...",
   });
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -66,30 +76,48 @@ const GitHubStats: React.FC<GitHubStatsProps> = ({ username }) => {
     const fetchGitHubStats = async () => {
       try {
         // Fetch user data
-        const userResponse = await fetch(`https://api.github.com/users/${username}`);
+        const userResponse = await fetch(
+          `https://api.github.com/users/${username}`
+        );
         const userData: UserData = await userResponse.json();
 
         // Fetch repositories
-        const reposResponse = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`);
+        const reposResponse = await fetch(
+          `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`
+        );
         const reposData: Repository[] = await reposResponse.json();
 
         // Calculate total stars and forks
-        const totalStars = reposData.reduce((acc, repo) => acc + repo.stargazers_count, 0);
-        const totalForks = reposData.reduce((acc, repo) => acc + repo.forks_count, 0);
+        const totalStars = reposData.reduce(
+          (acc, repo) => acc + repo.stargazers_count,
+          0
+        );
+        const totalForks = reposData.reduce(
+          (acc, repo) => acc + repo.forks_count,
+          0
+        );
 
         // Get total open issues
-        const openIssues = reposData.reduce((acc, repo) => acc + repo.open_issues_count, 0);
+        const openIssues = reposData.reduce(
+          (acc, repo) => acc + repo.open_issues_count,
+          0
+        );
 
         // Get latest repositories
         const latestRepos = reposData
-          .sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime())
+          .sort(
+            (a, b) =>
+              new Date(b.updated_at).getTime() -
+              new Date(a.updated_at).getTime()
+          )
           .slice(0, 3);
 
         // Calculate languages
         const languagesMap: Record<string, number> = {};
         reposData.forEach((repo) => {
           if (repo.language) {
-            languagesMap[repo.language] = (languagesMap[repo.language] || 0) + 1;
+            languagesMap[repo.language] =
+              (languagesMap[repo.language] || 0) + 1;
           }
         });
 
@@ -98,7 +126,7 @@ const GitHubStats: React.FC<GitHubStatsProps> = ({ username }) => {
           .slice(0, 5)
           .map(([name, count]) => ({
             name,
-            percentage: Math.round((count / reposData.length) * 100)
+            percentage: Math.round((count / reposData.length) * 100),
           }));
 
         setStats({
@@ -110,11 +138,11 @@ const GitHubStats: React.FC<GitHubStatsProps> = ({ username }) => {
           openIssues,
           latestRepos,
           languages,
-          contributions: userData.public_repos * 25 // Rough estimate
+          contributions: userData.public_repos * 25, // Rough estimate
         });
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching GitHub stats:', error);
+        console.error("Error fetching GitHub stats:", error);
         setLoading(false);
       }
     };
@@ -127,26 +155,26 @@ const GitHubStats: React.FC<GitHubStatsProps> = ({ username }) => {
       label: "Repositories",
       value: stats.repositories,
       icon: Code,
-      loading
+      loading,
     },
     {
       label: "Total Stars",
       value: stats.totalStars,
       icon: Star,
-      loading
+      loading,
     },
     {
       label: "Total Forks",
       value: stats.totalForks,
       icon: GitFork,
-      loading
+      loading,
     },
     {
       label: "GitHub Followers",
       value: stats.followers,
       icon: Users,
-      loading
-    }
+      loading,
+    },
   ];
 
   const additionalStats: StatConfig[] = [
@@ -154,26 +182,26 @@ const GitHubStats: React.FC<GitHubStatsProps> = ({ username }) => {
       label: "Following",
       value: stats.following,
       icon: Users,
-      loading
+      loading,
     },
     {
       label: "Open Issues",
       value: stats.openIssues,
       icon: GitCommit,
-      loading
+      loading,
     },
     {
       label: "Contributions",
       value: stats.contributions,
       icon: Activity,
-      loading
+      loading,
     },
     {
       label: "Languages",
       value: stats.languages.length,
       icon: BookOpen,
-      loading
-    }
+      loading,
+    },
   ];
 
   const renderStatCard = (stat: StatConfig) => (
@@ -186,44 +214,56 @@ const GitHubStats: React.FC<GitHubStatsProps> = ({ username }) => {
       <div className="text-2xl md:text-3xl font-bold text-primary">
         {stat.loading ? (
           <div className="h-8 w-16 mx-auto bg-muted animate-pulse rounded" />
+        ) : typeof stat.value === "number" ? (
+          stat.value.toLocaleString()
         ) : (
-          typeof stat.value === 'number' ? stat.value.toLocaleString() : stat.value
+          stat.value
         )}
       </div>
-      <div className="text-sm text-muted-foreground mt-1">
-        {stat.label}
-      </div>
+      <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
     </div>
   );
 
   return (
-    <div className="space-y-12 mt-20 pt-8 border-t">
-      {/* Main Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-        {mainStats.map(renderStatCard)}
-      </div>
+    <div id="github-stats">
+      <Card className="mb-8">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Github className="h-6 w-6" />
+            Github Stats
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-12 py-8">
+            {/* Main Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {mainStats.map(renderStatCard)}
+            </div>
 
-      {/* Additional Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-        {additionalStats.map(renderStatCard)}
-      </div>
+            {/* Additional Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {additionalStats.map(renderStatCard)}
+            </div>
 
-      {/* Top Languages */}
-      {!loading && stats.languages.length > 0 && (
-        <div className="space-y-4">
-          <h3 className="text-xl font-semibold">Top Languages</h3>
-          <div className="flex flex-wrap gap-2">
-            {stats.languages.map((lang) => (
-              <div
-                key={lang.name}
-                className="px-3 py-1 rounded-full bg-primary/10 text-sm"
-              >
-                {lang.name} ({lang.percentage}%)
+            {/* Top Languages */}
+            {!loading && stats.languages.length > 0 && (
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold">Top Languages</h3>
+                <div className="flex flex-wrap gap-2">
+                  {stats.languages.map((lang) => (
+                    <div
+                      key={lang.name}
+                      className="px-3 py-1 rounded-full bg-primary/10 text-sm"
+                    >
+                      {lang.name} ({lang.percentage}%)
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
+            )}
           </div>
-        </div>
-      )}
+        </CardContent>
+      </Card>
     </div>
   );
 };

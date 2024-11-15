@@ -22,7 +22,7 @@ export default function Education() {
   ];
   return (
     <div id="education">
-      <Card>
+      <Card className="mb-8">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <GraduationCap className="h-6 w-6" />

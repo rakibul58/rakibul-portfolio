@@ -1,8 +1,8 @@
 import { ArrowRight, Github, Linkedin, Mail, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Typewriter } from "react-simple-typewriter";
-import GitHubStats from "./GithubStats";
 import { DiscordIcon, XIcon } from "@/assets/icons";
+import { handleScroll } from "@/utils";
 
 const HeroSection = () => {
   const socialLinks = [
@@ -16,7 +16,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="min-h-screen relative overflow-hidden bg-gradient-to-b from-background to-background/95 mb-10">
+    <section className="min-h-screen relative overflow-hidden bg-gradient-to-b from-background to-background/95">
       {/* Background Grid Effect */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
 
@@ -62,11 +62,11 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button size="lg" className="group">
+              <Button onClick={()=>handleScroll("github-stats")} size="lg" className="group py-4">
                 View My Work
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="outline" className="border-2 dark:border-white py-4">
                 Download Resume
               </Button>
             </div>
@@ -87,7 +87,7 @@ const HeroSection = () => {
           </div>
 
           {/* Stats */}
-          <GitHubStats username="rakibul58" />
+          
         </div>
       </div>
     </section>

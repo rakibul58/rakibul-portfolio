@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { ModeToggle } from "@/components/mode-toggle";
 import { motion } from "framer-motion"; // Note: Update to "framer-motion" import
+import { handleScroll } from "@/utils";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleScroll = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
+  const handleNavScroll = (sectionId: string) => {
+    handleScroll(sectionId);
     setIsOpen(false); // Close the menu after navigating
   };
 
@@ -40,19 +38,19 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <ul className="hidden sm:flex items-center gap-6">
           <li
-            onClick={() => handleScroll("about")}
+            onClick={() => handleNavScroll("about")}
             className="hover:text-primary cursor-pointer"
           >
             About
           </li>
           <li
-            onClick={() => handleScroll("experience")}
+            onClick={() => handleNavScroll("experience")}
             className="hover:text-primary cursor-pointer"
           >
             Experience
           </li>
           <li
-            onClick={() => handleScroll("education")}
+            onClick={() => handleNavScroll("education")}
             className="hover:text-primary cursor-pointer"
           >
             Education
@@ -69,19 +67,19 @@ const Navbar = () => {
             className="sm:hidden absolute top-16 left-0 w-full bg-background flex flex-col items-center gap-4 p-6 shadow-lg"
           >
             <li
-              onClick={() => handleScroll("about")}
+              onClick={() => handleNavScroll("about")}
               className="hover:text-primary cursor-pointer"
             >
               About
             </li>
             <li
-              onClick={() => handleScroll("experience")}
+              onClick={() => handleNavScroll("experience")}
               className="hover:text-primary cursor-pointer"
             >
               Experience
             </li>
             <li
-              onClick={() => handleScroll("education")}
+              onClick={() => handleNavScroll("education")}
               className="hover:text-primary cursor-pointer"
             >
               Education
