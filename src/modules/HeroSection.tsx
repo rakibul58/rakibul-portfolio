@@ -1,4 +1,11 @@
-import { ArrowRight, Github, Linkedin, Mail, Facebook, Instagram } from "lucide-react";
+import {
+  ArrowRight,
+  Github,
+  Linkedin,
+  Mail,
+  Facebook,
+  Instagram,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Typewriter } from "react-simple-typewriter";
 import { DiscordIcon, XIcon } from "@/assets/icons";
@@ -6,13 +13,29 @@ import { handleScroll } from "@/utils";
 
 const HeroSection = () => {
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Mail, href: "#", label: "Email" },
-    { icon: XIcon , href: "#", label: "X" },
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: DiscordIcon, href: "#", label: "Discord" },
+    { icon: Github, href: "https://github.com/rakibul58", label: "GitHub" },
+    {
+      icon: Linkedin,
+      href: "www.linkedin.com/in/muhammed-rakibul-hasan",
+      label: "LinkedIn",
+    },
+    { icon: Mail, href: "muhammed.rakbul.hasan.1@gmail.com", label: "Email" },
+    { icon: XIcon, href: "https://x.com/rakibul_58", label: "X" },
+    {
+      icon: Facebook,
+      href: "https://facebook.com/rhrahi14",
+      label: "Facebook",
+    },
+    {
+      icon: Instagram,
+      href: "https://instagram.com/rakibul14",
+      label: "Instagram",
+    },
+    {
+      icon: DiscordIcon,
+      href: "https://instagram.com/rakibul14",
+      label: "Discord",
+    },
   ];
 
   const handleResumeDownload = () => {
@@ -68,11 +91,20 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button onClick={()=>handleScroll("github-stats")} size="lg" className="group py-4">
+              <Button
+                onClick={() => handleScroll("github-stats")}
+                size="lg"
+                className="group py-4"
+              >
                 View My Work
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button onClick={()=> handleResumeDownload()} size="lg" variant="outline" className="border-2 dark:border-white py-4">
+              <Button
+                onClick={() => handleResumeDownload()}
+                size="lg"
+                variant="outline"
+                className="border-2 dark:border-white py-4"
+              >
                 Download Resume
               </Button>
             </div>
@@ -83,6 +115,7 @@ const HeroSection = () => {
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
                   className="p-2 rounded-full hover:bg-muted transition-colors"
                   aria-label={label}
                 >
@@ -93,7 +126,6 @@ const HeroSection = () => {
           </div>
 
           {/* Stats */}
-          
         </div>
       </div>
     </section>
