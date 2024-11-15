@@ -10,27 +10,29 @@ import {
 export default function Professional_Experience() {
   const experience = [
     {
-      title: "Full Stack Developer",
-      company: "Tech Company",
-      period: "2022 - Present",
+      title: "Senior Full Stack Developer",
+      company: "Experiment Labs",
+      period: "Apr 2023 - November 2024",
       description:
         "Leading development of web applications using modern technologies. Implementing best practices and optimizing performance.",
       achievements: [
-        "Reduced loading time by 40% through code optimization",
-        "Implemented CI/CD pipeline reducing deployment time by 60%",
-        "Led team of 4 developers in successful project delivery",
+        "Spearheaded the development of real-time communication features utilizing Socket.io, enhancing user engagement and collaboration within the application.",
+        "Engineered robust email functionalities using AWS SES (Simple Email Service), ensuring seamless and scalable communication channels for transactional and marketing purposes.",
+        "Orchestrated AWS S3 (Simple Storage Service) for optimized storage solutions, streamlining file management and data accessibility while maintaining security standards.",
+        "Leveraged the Zoom API to seamlessly integrate video conferencing capabilities, fostering virtual collaboration and communication among users in the application ecosystem.",
       ],
     },
     {
-      title: "Frontend Developer",
-      company: "StartUp Inc",
-      period: "2021 - 2022",
+      title: "React Developer",
+      company: "Jamrio Private LTD",
+      period: "Dec 2022 - Mar 2023",
       description:
-        "Developed responsive web applications using React and Next.js. Collaborated with design team for optimal user experience.",
+        "Developed responsive web applications using React. Collaborated with design team for optimal user experience.",
       achievements: [
-        "Built 5+ major features with 98% client satisfaction",
-        "Mentored 3 junior developers",
-        "Improved site performance score from 65 to 95",
+        "Contributed to the development of dynamic user interfaces using React.js, enhancing the overall user experience and interface responsiveness.",
+        "Collaborated with the design team to implement pixel-perfect designs and ensure seamless integration with backend systems.",
+        "Optimized application performance by identifying and resolving bottlenecks through code refactoring and performance-tuning techniques.",
+        "Utilized React Router for client-side routing, enabling smooth navigation and enhancing the application's usability.",
       ],
     },
   ];
@@ -45,7 +47,7 @@ export default function Professional_Experience() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <Accordion type="multiple" className="space-y-6">
+          <Accordion defaultValue={[`experience-0`]} type="multiple" className="space-y-6">
             {experience.map((exp, index) => (
               <AccordionItem key={index} value={`experience-${index}`}>
                 <AccordionTrigger className="text-lg font-semibold">
