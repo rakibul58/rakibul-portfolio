@@ -72,7 +72,7 @@ const HeroSection = () => {
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center gap-4 pt-8">
+            <div className="flex items-center flex-wrap gap-4 pt-8">
               {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}

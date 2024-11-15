@@ -96,7 +96,7 @@ export default function About() {
                   ⚡ Passionate about:
                   <ul className="list-disc pl-6 mt-2 space-y-1">
                     <li>Building performant web applications</li>
-                    <li>Open source contribution</li>
+                    <li>Exploring new web technologies</li>
                     <li>Teaching and mentoring</li>
                     <li>Problem-solving through code</li>
                   </ul>
