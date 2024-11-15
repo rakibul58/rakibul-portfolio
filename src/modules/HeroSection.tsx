@@ -15,6 +15,12 @@ const HeroSection = () => {
     { icon: DiscordIcon, href: "#", label: "Discord" },
   ];
 
+  const handleResumeDownload = () => {
+    const resumeUrl =
+      "https://drive.google.com/uc?export=download&id=1zepdHevgXSTUTlXcW9nDLGWAOo0ibuIh";
+    window.open(resumeUrl, "_blank");
+  };
+
   return (
     <section className="min-h-screen relative overflow-hidden bg-gradient-to-b from-background to-background/95">
       {/* Background Grid Effect */}
@@ -66,7 +72,7 @@ const HeroSection = () => {
                 View My Work
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button size="lg" variant="outline" className="border-2 dark:border-white py-4">
+              <Button onClick={()=> handleResumeDownload()} size="lg" variant="outline" className="border-2 dark:border-white py-4">
                 Download Resume
               </Button>
             </div>

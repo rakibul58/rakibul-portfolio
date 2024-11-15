@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ModeToggle } from "@/components/mode-toggle";
-import { motion } from "framer-motion"; // Note: Update to "framer-motion" import
+import { motion } from "framer-motion";
 import { handleScroll } from "@/utils";
 
 const Navbar = () => {
@@ -10,6 +10,13 @@ const Navbar = () => {
     handleScroll(sectionId);
     setIsOpen(false); // Close the menu after navigating
   };
+
+  const navItems = [
+    { label: "About", scrollTo: "about" },
+    { label: "Experience", scrollTo: "experience" },
+    { label: "Education", scrollTo: "education" },
+    { label: "Github Stats", scrollTo: "github-stats" },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 w-full z-10 shadow-lg bg-background text-foreground py-4">
@@ -37,24 +44,16 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden sm:flex items-center gap-6">
-          <li
-            onClick={() => handleNavScroll("about")}
-            className="hover:text-primary cursor-pointer"
-          >
-            About
-          </li>
-          <li
-            onClick={() => handleNavScroll("experience")}
-            className="hover:text-primary cursor-pointer"
-          >
-            Experience
-          </li>
-          <li
-            onClick={() => handleNavScroll("education")}
-            className="hover:text-primary cursor-pointer"
-          >
-            Education
-          </li>
+          {navItems.map((item) => (
+            <li
+              key={item.label}
+              onClick={() => handleNavScroll(item.scrollTo)}
+              className="hover:text-primary cursor-pointer"
+            >
+              {item.label}
+            </li>
+          ))}
+
           <ModeToggle />
         </ul>
 
@@ -66,24 +65,16 @@ const Navbar = () => {
             exit={{ opacity: 0, y: -10 }}
             className="sm:hidden absolute top-16 left-0 w-full bg-background flex flex-col items-center gap-4 p-6 shadow-lg"
           >
-            <li
-              onClick={() => handleNavScroll("about")}
-              className="hover:text-primary cursor-pointer"
-            >
-              About
-            </li>
-            <li
-              onClick={() => handleNavScroll("experience")}
-              className="hover:text-primary cursor-pointer"
-            >
-              Experience
-            </li>
-            <li
-              onClick={() => handleNavScroll("education")}
-              className="hover:text-primary cursor-pointer"
-            >
-              Education
-            </li>
+            {navItems.map((item) => (
+              <li
+                key={item.label}
+                onClick={() => handleNavScroll(item.scrollTo)}
+                className="hover:text-primary cursor-pointer"
+              >
+                {item.label}
+              </li>
+            ))}
+
             <ModeToggle />
           </motion.ul>
         )}
