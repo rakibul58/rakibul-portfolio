@@ -2,6 +2,12 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { motion } from "motion/react";
 
 const Navbar = () => {
+  const handleScroll = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <nav className="fixed top-0 left-0 w-full z-10 shadow-lg bg-background text-foreground py-4">
       <div className="container mx-auto flex justify-between items-center px-4">
@@ -17,18 +23,27 @@ const Navbar = () => {
             Rakibul
           </span>
         </motion.div>
-        <div className="flex items-center gap-6">
-          <a href="#about" className="hover:text-primary">
+        <ul className="flex items-center gap-6">
+          <li
+            onClick={() => handleScroll("about")}
+            className="hover:text-primary cursor-pointer"
+          >
             About
-          </a>
-          <a href="#projects" className="hover:text-primary">
-            Projects
-          </a>
-          <a href="#contact" className="hover:text-primary">
-            Contact
-          </a>
+          </li>
+          <li
+            onClick={() => handleScroll("experience")}
+            className="hover:text-primary cursor-pointer"
+          >
+            Experience
+          </li>
+          <li
+            onClick={() => handleScroll("education")}
+            className="hover:text-primary cursor-pointer"
+          >
+            Education
+          </li>
           <ModeToggle />
-        </div>
+        </ul>
       </div>
     </nav>
   );
