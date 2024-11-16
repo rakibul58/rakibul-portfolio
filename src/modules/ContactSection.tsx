@@ -88,7 +88,6 @@ export default function ContactSection() {
         });
         setFormData(INITIAL_FORM_STATE);
       }
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error: unknown) {
       console.log({ error });
       setStatus({
@@ -107,7 +106,11 @@ export default function ContactSection() {
       href: "www.linkedin.com/in/muhammed-rakibul-hasan",
       label: "LinkedIn",
     },
-    { icon: Mail, href: "mailto:muhammed.rakbul.hasan.1@gmail.com", label: "Email" },
+    {
+      icon: Mail,
+      href: "mailto:muhammed.rakbul.hasan.1@gmail.com",
+      label: "Email",
+    },
     { icon: XIcon, href: "https://x.com/rakibul_58", label: "X" },
     {
       icon: Facebook,
@@ -132,7 +135,7 @@ export default function ContactSection() {
     {
       icon: MapPin,
       label: "Address",
-      value: "123 Business Street, City, Country",
+      value: "Colonel Hat, Chittagong",
     },
   ];
 
