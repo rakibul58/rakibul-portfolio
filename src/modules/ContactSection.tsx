@@ -107,7 +107,7 @@ export default function ContactSection() {
       href: "www.linkedin.com/in/muhammed-rakibul-hasan",
       label: "LinkedIn",
     },
-    { icon: Mail, href: "muhammed.rakbul.hasan.1@gmail.com", label: "Email" },
+    { icon: Mail, href: "mailto:muhammed.rakbul.hasan.1@gmail.com", label: "Email" },
     { icon: XIcon, href: "https://x.com/rakibul_58", label: "X" },
     {
       icon: Facebook,

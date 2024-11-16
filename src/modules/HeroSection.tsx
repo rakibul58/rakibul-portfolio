@@ -6,9 +6,9 @@ import {
   Facebook,
   Instagram,
 } from "lucide-react";
+import { DiscordIcon, XIcon } from "@/assets/icons";
 import { Button } from "@/components/ui/button";
 import { Typewriter } from "react-simple-typewriter";
-import { DiscordIcon, XIcon } from "@/assets/icons";
 import { handleScroll } from "@/utils";
 
 const HeroSection = () => {
@@ -19,7 +19,7 @@ const HeroSection = () => {
       href: "www.linkedin.com/in/muhammed-rakibul-hasan",
       label: "LinkedIn",
     },
-    { icon: Mail, href: "muhammed.rakbul.hasan.1@gmail.com", label: "Email" },
+    { icon: Mail, href: "mailto:muhammed.rakbul.hasan.1@gmail.com", label: "Email" },
     { icon: XIcon, href: "https://x.com/rakibul_58", label: "X" },
     {
       icon: Facebook,

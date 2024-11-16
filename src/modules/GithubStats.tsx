@@ -11,6 +11,7 @@ import {
   Github,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { AnimatePresence, motion } from "motion/react";
 
 interface Repository {
   id: number;
@@ -204,67 +205,223 @@ const GitHubStats: React.FC<GitHubStatsProps> = ({ username }) => {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15, // Slightly increased stagger time
+        delayChildren: 0.1, // Added small initial delay
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 12,
+        duration: 0.6,
+      },
+    },
+  };
+
+  const statVariants = {
+    hidden: { opacity: 0, y: 20, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 150,
+        damping: 15,
+        duration: 0.5,
+      },
+    },
+  };
+
+  const iconVariants = {
+    hover: {
+      rotate: 360,
+      scale: 1.1,
+      transition: {
+        type: "spring",
+        stiffness: 150,
+        damping: 10,
+      },
+    },
+  };
+
+  const languageContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const languageItemVariants = {
+    hidden: { opacity: 0, x: -10, y: 10 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 120,
+        damping: 12,
+      },
+    },
+    hover: {
+      scale: 1.05,
+      y: -2,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 10,
+      },
+    },
+  };
+
+  // Enhanced renderStatCard function
   const renderStatCard = (stat: StatConfig) => (
-    <div key={stat.label} className="text-center group">
+    <motion.div
+      key={stat.label}
+      className="text-center group"
+      variants={statVariants}
+      whileHover={{
+        scale: 1.03,
+        y: -5,
+        transition: {
+          type: "spring",
+          stiffness: 300,
+          damping: 15,
+        },
+      }}
+    >
       <div className="flex justify-center mb-2">
-        <div className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+        <motion.div
+          className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300"
+          variants={iconVariants}
+          whileHover="hover"
+        >
           <stat.icon className="h-6 w-6 text-primary" />
-        </div>
+        </motion.div>
       </div>
-      <div className="text-2xl md:text-3xl font-bold text-primary">
-        {stat.loading ? (
-          <div className="h-8 w-16 mx-auto bg-muted animate-pulse rounded" />
-        ) : typeof stat.value === "number" ? (
-          stat.value.toLocaleString()
-        ) : (
-          stat.value
-        )}
-      </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={stat.value.toString()}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.2 }}
+          className="text-2xl md:text-3xl font-bold text-primary"
+        >
+          {stat.loading ? (
+            <div className="h-8 w-16 mx-auto bg-muted animate-pulse rounded" />
+          ) : typeof stat.value === "number" ? (
+            stat.value.toLocaleString()
+          ) : (
+            stat.value
+          )}
+        </motion.div>
+      </AnimatePresence>
       <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
-    </div>
+    </motion.div>
   );
 
   return (
-    <div id="github-stats">
-      <Card className="mb-8">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Github className="h-6 w-6" />
-            Github Stats
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-12 py-8">
-            {/* Main Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {mainStats.map(renderStatCard)}
-            </div>
+    <motion.div
+      id="github-stats"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
+    >
+      <motion.div variants={cardVariants}>
+        <Card className="mb-8">
+          <CardHeader>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 15,
+                duration: 0.6,
+              }}
+            >
+              <CardTitle className="flex items-center gap-2">
+                <motion.div
+                  whileHover={{
+                    rotate: [0, -10, 380],
+                    transition: { duration: 0.6 },
+                  }}
+                >
+                  <Github className="h-6 w-6" />
+                </motion.div>
+                Github Stats
+              </CardTitle>
+            </motion.div>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-12 py-8">
+              <motion.div
+                className="grid grid-cols-2 md:grid-cols-4 gap-8"
+                variants={containerVariants}
+              >
+                {mainStats.map(renderStatCard)}
+              </motion.div>
 
-            {/* Additional Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {additionalStats.map(renderStatCard)}
-            </div>
+              <motion.div
+                className="grid grid-cols-2 md:grid-cols-4 gap-8"
+                variants={containerVariants}
+              >
+                {additionalStats.map(renderStatCard)}
+              </motion.div>
 
-            {/* Top Languages */}
-            {!loading && stats.languages.length > 0 && (
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold">Top Languages</h3>
-                <div className="flex flex-wrap gap-2">
-                  {stats.languages.map((lang) => (
-                    <div
-                      key={lang.name}
-                      className="px-3 py-1 rounded-full bg-primary/10 text-sm"
-                    >
-                      {lang.name} ({lang.percentage}%)
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        </CardContent>
-      </Card>
-    </div>
+              {!loading && stats.languages.length > 0 && (
+                <motion.div
+                  className="space-y-4"
+                  variants={languageContainerVariants}
+                >
+                  <motion.h3
+                    variants={languageItemVariants}
+                    className="text-xl font-semibold"
+                  >
+                    Top Languages
+                  </motion.h3>
+                  <motion.div
+                    className="flex flex-wrap gap-2"
+                    variants={languageContainerVariants}
+                  >
+                    {stats.languages.map((lang, index) => (
+                      <motion.div
+                        key={index}
+                        variants={languageItemVariants}
+                        whileHover="hover"
+                        className="px-3 py-1 rounded-full bg-primary/10 text-sm hover:bg-primary/20 transition-colors duration-300"
+                      >
+                        {lang.name} ({lang.percentage}%)
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                </motion.div>
+              )}
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
+    </motion.div>
   );
 };
 

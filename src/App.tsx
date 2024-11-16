@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { About, ContactSection, Education, GitHubStats, HeroSection, Navbar, Professional_Experience } from "./modules";
+import { About, ContactSection, Education, Footer, GitHubStats, HeroSection, Navbar, Professional_Experience } from "./modules";
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
           <Education />
           <GitHubStats username="rakibul58" />
           <ContactSection />
+          <Footer />
         </div>
       </motion.section>
     </div>
