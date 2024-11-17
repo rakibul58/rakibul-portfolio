@@ -2,9 +2,13 @@ import { useState } from "react";
 import { ModeToggle } from "@/components/mode-toggle";
 import { motion } from "framer-motion";
 import { handleScroll } from "@/utils";
+import { Link, useLocation } from "react-router-dom";
+import { ChevronLeft } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const isProjectDetails = location.pathname.startsWith("/projects/");
 
   const handleNavScroll = (sectionId: string) => {
     handleScroll(sectionId);
@@ -28,35 +32,63 @@ const Navbar = () => {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
         >
-          <span
-            className="text-3xl font-bold"
-            style={{ fontFamily: "Dancing Script, cursive" }}
-          >
-            Rakibul
-          </span>
+          <Link to={"/"}>
+            <span
+              className="text-3xl font-bold"
+              style={{ fontFamily: "Dancing Script, cursive" }}
+            >
+              Rakibul
+            </span>
+          </Link>
         </motion.div>
 
-        {/* Hamburger Icon */}
-        <div className="sm:hidden" onClick={() => setIsOpen(!isOpen)}>
-          <button className="text-3xl focus:outline-none">
-            {isOpen ? "✕" : "☰"}
-          </button>
-        </div>
-
-        {/* Desktop Menu */}
-        <ul className="hidden sm:flex items-center gap-6">
-          {navItems.map((item) => (
-            <li
-              key={item.label}
-              onClick={() => handleNavScroll(item.scrollTo)}
-              className="hover:text-primary cursor-pointer"
+        {isProjectDetails ? (
+          <ul className="flex sm:hidden items-center gap-6">
+            {" "}
+            <Link
+              to="/"
+              className="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors"
             >
-              {item.label}
-            </li>
-          ))}
+              <ChevronLeft className="h-4 w-4" />
+              Back to Portfolio
+            </Link>
+            <ModeToggle />
+          </ul>
+        ) : (
+          <div className="sm:hidden" onClick={() => setIsOpen(!isOpen)}>
+            <button className="text-3xl focus:outline-none">
+              {isOpen ? "✕" : "☰"}
+            </button>
+          </div>
+        )}
 
-          <ModeToggle />
-        </ul>
+        {isProjectDetails ? (
+          <ul className="hidden sm:flex items-center gap-6">
+            {" "}
+            <Link
+              to="/"
+              className="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors"
+            >
+              <ChevronLeft className="h-4 w-4" />
+              Back to Portfolio
+            </Link>
+            <ModeToggle />
+          </ul>
+        ) : (
+          <ul className="hidden sm:flex items-center gap-6">
+            {navItems.map((item) => (
+              <li
+                key={item.label}
+                onClick={() => handleNavScroll(item.scrollTo)}
+                className="hover:text-primary cursor-pointer"
+              >
+                {item.label}
+              </li>
+            ))}
+
+            <ModeToggle />
+          </ul>
+        )}
 
         {/* Mobile Menu with Animation */}
         {isOpen && (

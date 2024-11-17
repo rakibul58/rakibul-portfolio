@@ -6,6 +6,7 @@ import Education from "./Education";
 import GitHubStats from "./GithubStats";
 import ContactSection from "./ContactSection";
 import Footer from "./Footer";
+import Projects from "./Projects";
 
 export {
   Navbar,
@@ -15,5 +16,6 @@ export {
   Education,
   GitHubStats,
   ContactSection,
-  Footer
+  Footer,
+  Projects
 };

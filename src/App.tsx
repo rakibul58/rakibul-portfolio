@@ -1,27 +1,31 @@
-import { motion } from "motion/react";
-import { About, ContactSection, Education, Footer, GitHubStats, HeroSection, Navbar, Professional_Experience } from "./modules";
+import { Navbar } from "./modules";
+import { Home, ProjectDetails } from "./pages";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { motion } from "framer-motion";
 
 function App() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Navbar />
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="py-16"
-      >
-        <div className="container mx-auto px-4">
-          <HeroSection />
-          <About />
-          <Professional_Experience />
-          <Education />
-          <GitHubStats username="rakibul58" />
-          <ContactSection />
-          <Footer />
-        </div>
-      </motion.section>
-    </div>
+    <Router>
+      <div className="min-h-screen bg-background text-foreground">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/projects/:id"
+            element={
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ProjectDetails />
+              </motion.div>
+            }
+          />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
