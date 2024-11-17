@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "ProTech - Client",
+    "description": "A blog platform for users to post articles, comment, and vote on topics of interest. Admins can manage posts and user interactions.",
+    "longDescription": "Key features include:\n\n- Secure sign-up, login, logout, and JWT-based authentication\n- Users can create posts with a rich text editor, categorize posts, and attach images.\n- Users can upvote/downvote posts, comment, and interact with other posts.\n- Manage users, posts, and analytics.\n- Search and filter posts with debounced API calls. \n- Premium access for exclusive posts using Aamarpay.",
+    "media": [
+      {
+        "type": "youtube",
+        "url": "https://youtu.be/jERca4Lcefg",
+        "videoId": "jERca4Lcefg"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731839762/Screenshot_2024-11-13_222806_ppqwxi.png"
+      }
+    ],
+    "username":"rakibul58",
+    "repo":"protech-client",
+    "image":"https://res.cloudinary.com/dk4zufod5/image/upload/v1731839762/Screenshot_2024-11-13_222806_ppqwxi.png",
+    "technologies": ["NextJS", "NextUI", "TanStack Query", "Axios", "Vercel"],
+    "category": "Frontend",
+    "links": {
+      "live": "https://youtu.be/jERca4Lcefg",
+      "client": "https://github.com/rakibul58/protech-client",
+      "server": "https://github.com/rakibul58/protech-server"
+    }
+  }
+]

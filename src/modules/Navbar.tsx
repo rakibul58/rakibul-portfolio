@@ -17,6 +17,7 @@ const Navbar = () => {
 
   const navItems = [
     { label: "About", scrollTo: "about" },
+    { label: "Projects", scrollTo: "projects" },
     { label: "Experience", scrollTo: "experience" },
     { label: "Education", scrollTo: "education" },
     { label: "Github Stats", scrollTo: "github-stats" },

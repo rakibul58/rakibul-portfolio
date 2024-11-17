@@ -28,24 +28,10 @@ export default function ProjectsSection() {
   useEffect(() => {
     // Replace with your actual project data fetching
     const fetchProjects = async () => {
-      const projectsData = [
-        {
-          id: "1",
-          title: "E-Learning Platform",
-          description:
-            "A comprehensive learning management system with video courses, quizzes, and progress tracking.",
-          image: "/api/placeholder/800/600",
-          technologies: ["React", "Node.js", "MongoDB", "Express"],
-          category: "Full Stack",
-          links: {
-            live: "https://example.com",
-            client: "https://github.com/username/client",
-            server: "https://github.com/username/server",
-          },
-        },
-        // Add more projects...
-      ];
-      setProjects(projectsData);
+      fetch("/data.json")
+        .then((response) => response.json())
+        .then((data) => setProjects(data))
+        .catch((error) => console.error("Error loading JSON data:", error));
     };
 
     fetchProjects();
@@ -57,7 +43,7 @@ export default function ProjectsSection() {
       { threshold: 0.1 }
     );
 
-    const section = document.getElementById("projects-section");
+    const section = document.getElementById("projects");
     if (section) observer.observe(section);
 
     return () => observer.disconnect();
@@ -90,7 +76,7 @@ export default function ProjectsSection() {
   };
 
   return (
-    <div id="projects-section" className="scroll-mt-16">
+    <div id="projects" className="scroll-mt-16">
       <Card className="mb-8">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">

@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Layers,
-  ExternalLink,
   Github,
   Server,
   Globe,
@@ -68,44 +67,14 @@ export default function ProjectDetails() {
   useEffect(() => {
     // Replace with your actual project data fetching
     const fetchProjectDetails = async () => {
-      const projectData = {
-        id,
-        title: "E-Learning Platform",
-        description:
-          "A comprehensive learning management system with video courses, quizzes, and progress tracking.",
-        longDescription: `This project is a full-featured e-learning platform built with modern web technologies.
-          Key features include:
-          
-          - Video course hosting and playback
-          - Interactive quizzes and assessments
-          - Progress tracking and certificates
-          - User authentication and profiles
-          - Admin dashboard for content management
-        `,
-        media: [
-          {
-            type: "youtube",
-            url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-            videoId: "dQw4w9WgXcQ",
-          },
-          {
-            type: "image",
-            url: "/api/placeholder/800/600",
-          },
-        ],
-        technologies: ["React", "Node.js", "MongoDB", "Express"],
-        category: "Full Stack",
-        links: {
-          live: "https://example.com",
-          client: "https://github.com/username/client",
-          server: "https://github.com/username/server",
-        },
-      };
-      setProject(projectData);
+      fetch("/data.json")
+        .then((response) => response.json())
+        .then((data) => setProject(data[Number(id) - 1]))
+        .catch((error) => console.error("Error loading JSON data:", error));
 
       try {
         const response = await fetch(
-          `https://raw.githubusercontent.com/rakibul58/steerAway-client/main/README.md`
+          `https://raw.githubusercontent.com/${project.username}/${project.repo}/main/README.md`
         );
         const text = await response.text();
         setReadme(text);
@@ -115,7 +84,7 @@ export default function ProjectDetails() {
     };
 
     fetchProjectDetails();
-  }, [id]);
+  }, [id, project]);
 
   if (!project) return null;
 
@@ -188,7 +157,7 @@ export default function ProjectDetails() {
       className?: string;
       children?: React.ReactNode;
     }) => {
-      const match = /language-(\w+)/.exec(className || "");
+      // const match = /language-(\w+)/.exec(className || "");
       return inline ? (
         <code
           {...props}
