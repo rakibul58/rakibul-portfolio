@@ -73,9 +73,14 @@ export default function ProjectDetails() {
         .catch((error) => console.error("Error loading JSON data:", error));
 
       try {
-        const response = await fetch(
+        let response = await fetch(
           `https://raw.githubusercontent.com/${project.username}/${project.repo}/main/README.md`
         );
+        if (response.status === 404) {
+          response = await fetch(
+            `https://raw.githubusercontent.com/${project.username}/${project.repo}/main/readme.md`
+          );
+        }
         const text = await response.text();
         setReadme(text);
       } catch (error) {

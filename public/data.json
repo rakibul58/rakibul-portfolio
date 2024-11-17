@@ -13,17 +13,146 @@
       {
         "type": "image",
         "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731839762/Screenshot_2024-11-13_222806_ppqwxi.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731839763/Screenshot_2024-11-13_222920_jbzymp.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731839762/Screenshot_2024-11-13_223424_mo3yos.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731839762/Screenshot_2024-11-13_222838_bhksvl.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731839762/Screenshot_2024-11-13_223640_yzz4bt.png"
       }
     ],
-    "username":"rakibul58",
-    "repo":"protech-client",
-    "image":"https://res.cloudinary.com/dk4zufod5/image/upload/v1731839762/Screenshot_2024-11-13_222806_ppqwxi.png",
+    "username": "rakibul58",
+    "repo": "protech-client",
+    "image": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731839762/Screenshot_2024-11-13_222806_ppqwxi.png",
     "technologies": ["NextJS", "NextUI", "TanStack Query", "Axios", "Vercel"],
     "category": "Frontend",
     "links": {
-      "live": "https://youtu.be/jERca4Lcefg",
+      "live": "https://pro-tech-steel.vercel.app/",
       "client": "https://github.com/rakibul58/protech-client",
       "server": "https://github.com/rakibul58/protech-server"
+    }
+  },
+  {
+    "id": 2,
+    "title": "ProTech - Server",
+    "description": "A blog platform for users to post articles, comment, and vote on topics of interest. Admins can manage posts and user interactions.",
+    "longDescription": "Key features include:\n\n- Secure sign-up and login functionality.\n- User can filter Posts.\n- Users can view the posts, interact, upvote, comment and share.\n- Manage Post, Users.",
+    "media": [
+      {
+        "type": "youtube",
+        "url": "https://youtu.be/jERca4Lcefg",
+        "videoId": "jERca4Lcefg"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731845051/Screenshot_2024-11-17_174925_nkaidm.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731839763/Screenshot_2024-11-13_222920_jbzymp.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731839762/Screenshot_2024-11-13_223424_mo3yos.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731839762/Screenshot_2024-11-13_222838_bhksvl.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731839762/Screenshot_2024-11-13_223640_yzz4bt.png"
+      }
+    ],
+    "username": "rakibul58",
+    "repo": "protech-server",
+    "image": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731845051/Screenshot_2024-11-17_174925_nkaidm.png",
+    "technologies": ["Express", "MongoDB", "Mongoose", "JWT", "Vercel", "Node"],
+    "category": "Backend",
+    "links": {
+      "live": "https://protech-server.vercel.app/",
+      "client": "https://github.com/rakibul58/protech-client",
+      "server": "https://github.com/rakibul58/protech-server"
+    }
+  },
+  {
+    "id": 3,
+    "title": "SteerAway - Client",
+    "description": "SteerAway is a comprehensive car rental reservation system backend with features for booking and managing car rentals. Users can easily search for available cars, make booking, and admin can manage bookings and returns.",
+    "longDescription": "Key features include:\n\n- Secure sign-up and login functionality.\n- Admin can filter bookings based on carId and date.\n- Users can view the cars, book it if available.\n- Manage cars, bookings.",
+    "media": [
+      {
+        "type": "youtube",
+        "url": "https://youtu.be/4w-Yh6QaiTQ",
+        "videoId": "4w-Yh6QaiTQ"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847378/Screenshot_2024-11-13_225022_orznhh.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847370/Screenshot_2024-11-13_225055_ir3mlo.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847370/Screenshot_2024-11-13_225342_vfcam5.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847370/Screenshot_2024-11-13_225505_bfjdxl.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847370/Screenshot_2024-11-13_225150_bzj6bk.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847370/Screenshot_2024-11-13_225402_rpwvaf.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847369/Screenshot_2024-11-13_225547_rpa0k6.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847369/Screenshot_2024-11-13_225444_ahtlav.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847369/Screenshot_2024-11-13_225528_q9kwaz.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847369/Screenshot_2024-11-13_225607_wodi76.png"
+      }
+    ],
+    "username": "rakibul58",
+    "repo": "steerAway-client",
+    "image": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847378/Screenshot_2024-11-13_225022_orznhh.png",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "ShadCN",
+      "TailwindCSS",
+      "Vercel",
+      "Redux"
+    ],
+    "category": "Frontend",
+    "links": {
+      "live": "https://steer-away-rental.vercel.app/",
+      "client": "https://github.com/rakibul58/steerAway-client",
+      "server": "https://github.com/rakibul58/steerAway-server"
     }
   }
 ]

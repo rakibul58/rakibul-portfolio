@@ -18,10 +18,10 @@ interface Project {
   };
 }
 
-const categories = ["All", "Full Stack", "Frontend", "Backend"];
+const categories = ["Frontend", "Backend", "Full Stack"];
 
 export default function ProjectsSection() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("Frontend");
   const [isVisible, setIsVisible] = useState(false);
   const [projects, setProjects] = useState<Project[]>([]);
 
@@ -50,8 +50,7 @@ export default function ProjectsSection() {
   }, []);
 
   const filteredProjects = projects.filter(
-    (project) =>
-      selectedCategory === "All" || project.category === selectedCategory
+    (project) => project.category === selectedCategory
   );
 
   const containerVariants = {
