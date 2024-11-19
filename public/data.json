@@ -154,5 +154,185 @@
       "client": "https://github.com/rakibul58/steerAway-client",
       "server": "https://github.com/rakibul58/steerAway-server"
     }
+  },
+  {
+    "id": 4,
+    "title": "SteerAway - Server",
+    "description": "SteerAway is a comprehensive car rental reservation system backend with features for booking and managing car rentals. Users can easily search for available cars, make booking, and admin can manage bookings and returns.",
+    "longDescription": "Key features include:\n\n- Secure sign-up and login functionality.\n- Admin can filter bookings based on carId and date.\n- Users can view the cars, book it if available.\n- Manage cars, bookings.",
+    "media": [
+      {
+        "type": "youtube",
+        "url": "https://youtu.be/4w-Yh6QaiTQ",
+        "videoId": "4w-Yh6QaiTQ"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847378/Screenshot_2024-11-13_225022_orznhh.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847370/Screenshot_2024-11-13_225055_ir3mlo.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847370/Screenshot_2024-11-13_225342_vfcam5.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847370/Screenshot_2024-11-13_225505_bfjdxl.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847370/Screenshot_2024-11-13_225150_bzj6bk.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847370/Screenshot_2024-11-13_225402_rpwvaf.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847369/Screenshot_2024-11-13_225547_rpa0k6.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847369/Screenshot_2024-11-13_225444_ahtlav.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847369/Screenshot_2024-11-13_225528_q9kwaz.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847369/Screenshot_2024-11-13_225607_wodi76.png"
+      }
+    ],
+    "username": "rakibul58",
+    "repo": "steerAway-server",
+    "image": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847370/Screenshot_2024-11-13_225055_ir3mlo.png",
+    "technologies": [
+      "Node",
+      "TypeScript",
+      "Express",
+      "Mongoose",
+      "MongoDB",
+      "JWT"
+    ],
+    "category": "Backend",
+    "links": {
+      "live": "https://steer-away.vercel.app/",
+      "client": "https://github.com/rakibul58/steerAway-client",
+      "server": "https://github.com/rakibul58/steerAway-server"
+    }
+  },
+  {
+    "id": 5,
+    "title": "Wilderness Wonders - Client",
+    "description": "Wilderness Wonders frontend is designed to provide a user-friendly interface for the camping gear shop. It complements the backend by offering an intuitive and responsive shopping experience for customers. The frontend allows users to browse products, manage their shopping carts, and place orders easily. It also includes administrative functionalities for managing products.",
+    "longDescription": "Key features include:\n\n- Comprehensive product listings with inventory management.\n- Shopping cart and order processing.\n- Search and filter options for a tailored user experience.",
+    "media": [
+      {
+        "type": "youtube",
+        "url": "https://youtu.be/_vUBM_B9Ae0",
+        "videoId": "_vUBM_B9Ae0"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847930/Screenshot_2024-11-14_105233_iety7g.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847929/Screenshot_2024-11-14_105204_tps9q4.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847928/Screenshot_2024-11-14_105802_inpqth.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847923/Screenshot_2024-11-14_105940_okdeyw.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847923/Screenshot_2024-11-14_105836_remyd7.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847922/Screenshot_2024-11-14_110039_waazpj.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847922/Screenshot_2024-11-14_105901_wzc8um.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847921/Screenshot_2024-11-14_110145_zeegzc.png"
+      }
+    ],
+    "username": "rakibul58",
+    "repo": "wilderness-wonders-client",
+    "image": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847930/Screenshot_2024-11-14_105233_iety7g.png",
+    "technologies": ["React", "TypeScript", "Redux", "TailwindCSS", "ShadCN"],
+    "category": "Frontend",
+    "links": {
+      "live": "https://wilderness-wonders.vercel.app/",
+      "client": "https://github.com/rakibul58/wilderness-wonders-client",
+      "server": "https://github.com/rakibul58/wilderness-wonders-server"
+    }
+  },
+  {
+    "id": 6,
+    "title": "Wilderness Wonders - Server",
+    "description": "Wilderness Wonders Backend is designed to provide a user-friendly interface for the camping gear shop. It complements the backend by offering an intuitive and responsive shopping experience for customers. The frontend allows users to browse products, manage their shopping carts, and place orders easily. It also includes administrative functionalities for managing products.",
+    "longDescription": "Key features include:\n\n- Comprehensive product listings with inventory management.\n- Shopping cart and order processing.\n- Search and filter options for a tailored user experience.",
+    "media": [
+      {
+        "type": "youtube",
+        "url": "https://youtu.be/_vUBM_B9Ae0",
+        "videoId": "_vUBM_B9Ae0"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847930/Screenshot_2024-11-14_105233_iety7g.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847929/Screenshot_2024-11-14_105204_tps9q4.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847928/Screenshot_2024-11-14_105802_inpqth.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847923/Screenshot_2024-11-14_105940_okdeyw.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847923/Screenshot_2024-11-14_105836_remyd7.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847922/Screenshot_2024-11-14_110039_waazpj.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847922/Screenshot_2024-11-14_105901_wzc8um.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847921/Screenshot_2024-11-14_110145_zeegzc.png"
+      }
+    ],
+    "username": "rakibul58",
+    "repo": "wilderness-wonders-server",
+    "image": "https://res.cloudinary.com/dk4zufod5/image/upload/v1731847930/Screenshot_2024-11-14_105233_iety7g.png",
+    "technologies": ["Node", "TypeScript", "Mongoose", "MongoDB", "Express"],
+    "category": "Backend",
+    "links": {
+      "live": "https://wilderness-wonders-server.vercel.app/",
+      "client": "https://github.com/rakibul58/wilderness-wonders-client",
+      "server": "https://github.com/rakibul58/wilderness-wonders-server"
+    }
   }
 ]
