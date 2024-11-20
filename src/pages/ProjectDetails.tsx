@@ -259,36 +259,39 @@ export default function ProjectDetails() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          {/* Media Carousel */}
-          <motion.div variants={itemVariants} className="relative mb-6">
-            <div className="relative rounded-lg bg-black flex justify-center">
-              {renderMedia(project.media[activeMediaIndex])}
-            </div>
-            {project.media.length > 1 && (
-              <>
-                <button
-                  onClick={() =>
-                    setActiveMediaIndex((prev) =>
-                      prev === 0 ? project.media.length - 1 : prev - 1
-                    )
-                  }
-                  className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
-                >
-                  <ChevronLeft className="h-6 w-6" />
-                </button>
-                <button
-                  onClick={() =>
-                    setActiveMediaIndex((prev) =>
-                      prev === project.media.length - 1 ? 0 : prev + 1
-                    )
-                  }
-                  className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
-                >
-                  <ChevronRight className="h-6 w-6" />
-                </button>
-              </>
-            )}
-          </motion.div>
+          {project.media.length ? (
+            <motion.div variants={itemVariants} className="relative mb-6">
+              <div className="relative rounded-lg bg-black flex justify-center">
+                {renderMedia(project.media[activeMediaIndex])}
+              </div>
+              {project.media.length > 1 && (
+                <>
+                  <button
+                    onClick={() =>
+                      setActiveMediaIndex((prev) =>
+                        prev === 0 ? project.media.length - 1 : prev - 1
+                      )
+                    }
+                    className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+                  >
+                    <ChevronLeft className="h-6 w-6" />
+                  </button>
+                  <button
+                    onClick={() =>
+                      setActiveMediaIndex((prev) =>
+                        prev === project.media.length - 1 ? 0 : prev + 1
+                      )
+                    }
+                    className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </button>
+                </>
+              )}
+            </motion.div>
+          ) : (
+            <></>
+          )}
 
           {/* Project Links */}
           <motion.div
@@ -326,6 +329,17 @@ export default function ProjectDetails() {
               >
                 <Server className="h-4 w-4" />
                 Server Repository
+              </a>
+            )}
+            {project.links.github && (
+              <a
+                href={project.links.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 rounded-md bg-secondary hover:bg-secondary/80 transition-colors"
+              >
+                <Github className="h-4 w-4" />
+                Github Repository
               </a>
             )}
           </motion.div>

@@ -334,5 +334,50 @@
       "client": "https://github.com/rakibul58/wilderness-wonders-client",
       "server": "https://github.com/rakibul58/wilderness-wonders-server"
     }
+  },
+  {
+    "id": 7,
+    "title": "EduEase - School Mangement System",
+    "description": "A desktop application for managing student and staff information in a primary school, built using Java Swing and integrated with a relational database.",
+    "longDescription": "Key features include:\n\n- Add, edit, view, and delete student records.\n- Manage staff records and assignments.\n- Generate academic or administrative reports.",
+    "media": [],
+    "username": "rakibul58",
+    "repo": "EduEase",
+    "image": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732084731/gradient_orange_and_blue_fashion_furniture_youtube_thumbnail_2_xhyfy7.png",
+    "technologies": ["Java", "JavaSwing", "MySQL", "Xampp"],
+    "category": "Full Stack",
+    "links": {
+      "github": "https://github.com/rakibul58/EduEase"
+    }
+  },
+  {
+    "id": 8,
+    "title": "BookHive - Library Mangement System",
+    "description": "This is a Library Management System developed using Java Swing for the user interface and MySQL for the database. The system allows administrators to manage books, users, and borrowing transactions in a library environment.",
+    "longDescription": "Key features include:\n\n- Admin login and logout functionality.\n- Users can register and log in to borrow books.\n- Admin can add, edit, delete, and view books.",
+    "media": [],
+    "username": "rakibul58",
+    "repo": "BookHive",
+    "image": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732084171/gradient_orange_and_blue_fashion_furniture_youtube_thumbnail_1_lhesv1.png",
+    "technologies": ["Java", "JavaSwing", "MySQL", "Xampp"],
+    "category": "Full Stack",
+    "links": {
+      "github": "https://github.com/rakibul58/BookHive"
+    }
+  },
+  {
+    "id": 9,
+    "title": "GammaTravels - Bus Ticket Booking",
+    "description": "This is a Bus Ticket Booking Application developed to facilitate online ticket booking for Gamma Travels bus services. The application was developed during the pandemic to allow users to book tickets conveniently and maintain social distancing.",
+    "longDescription": "Key features include:\n\n- Admin login and logout functionality.\n- UAdmin panel for managing users, employees, and tickets.\n- Seat selection with real-time availability.",
+    "media": [],
+    "username": "rakibul58",
+    "repo": "GammaTravels",
+    "image": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732084152/gradient_orange_and_blue_fashion_furniture_youtube_thumbnail_lpfnzp.png",
+    "technologies": ["QT", "CPP", "SQLite"],
+    "category": "Full Stack",
+    "links": {
+      "github": "https://github.com/rakibul58/GammaTravels"
+    }
   }
 ]
