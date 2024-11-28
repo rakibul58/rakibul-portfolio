@@ -379,5 +379,145 @@
     "links": {
       "github": "https://github.com/rakibul58/GammaTravels"
     }
+  },
+  {
+    "id": 10,
+    "title": "Phone Heaven - Client",
+    "description": "Marketplace application for buying and selling used mobile phones. This repository contains the client-side code.",
+    "longDescription": "Key features include:\n\n- User Authentication with Firebase.\n- Role-based Access Control (Admin, Seller, Buyer).\n- Browse and Search Used Phones.",
+    "media": [
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364453/Screenshot_2024-11-23_145459_ltxxgn.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364454/Screenshot_2024-11-23_145515_rcdgf4.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364453/Screenshot_2024-11-23_145539_dicch2.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364452/Screenshot_2024-11-23_145721_pxevkq.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364452/Screenshot_2024-11-23_145748_etdtzn.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364452/Screenshot_2024-11-23_145651_opk8q7.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364452/Screenshot_2024-11-23_181505_sfnblc.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364452/Screenshot_2024-11-23_145605_t54lx8.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364452/Screenshot_2024-11-23_181529_hcpl7w.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364452/Screenshot_2024-11-23_181549_jctiue.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364451/Screenshot_2024-11-23_181825_zyidkn.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364452/Screenshot_2024-11-23_181859_y7kgeh.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364451/Screenshot_2024-11-23_181721_owwnja.png"
+      }
+    ],
+    "username": "rakibul58",
+    "repo": "phone-heaven-client",
+    "image": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364453/Screenshot_2024-11-23_145459_ltxxgn.png",
+    "technologies": ["React", "React Router DOM", "Firebase", "TailwindCSS", "DaisyUI", "Stripe"],
+    "category": "Frontend",
+    "links": {
+      "live": "https://phone-heaven.web.app/",
+      "client": "https://github.com/rakibul58/phone-heaven-client",
+      "server": "https://github.com/rakibul58/phone-heaven-server"
+    }
+  },
+  {
+    "id": 11,
+    "title": "Phone Heaven - Server",
+    "description": "Backend API for the Mobile Heaven used phone marketplace. Built with Node.js, Express, and MongoDB.",
+    "longDescription": "Key features include:\n\n- JWT Authentication.\n- MongoDB Database Integration.\n- Stripe Payment Processing.",
+    "media": [
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364453/Screenshot_2024-11-23_145459_ltxxgn.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364454/Screenshot_2024-11-23_145515_rcdgf4.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364453/Screenshot_2024-11-23_145539_dicch2.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364452/Screenshot_2024-11-23_145721_pxevkq.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364452/Screenshot_2024-11-23_145748_etdtzn.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364452/Screenshot_2024-11-23_145651_opk8q7.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364452/Screenshot_2024-11-23_181505_sfnblc.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364452/Screenshot_2024-11-23_145605_t54lx8.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364452/Screenshot_2024-11-23_181529_hcpl7w.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364452/Screenshot_2024-11-23_181549_jctiue.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364451/Screenshot_2024-11-23_181825_zyidkn.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364452/Screenshot_2024-11-23_181859_y7kgeh.png"
+      },
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364451/Screenshot_2024-11-23_181721_owwnja.png"
+      }
+    ],
+    "username": "rakibul58",
+    "repo": "phone-heaven-server",
+    "image": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364453/Screenshot_2024-11-23_145459_ltxxgn.png",
+    "technologies": ["Node", "Express", "MongoDB", "JWT", "Stripe"],
+    "category": "Backend",
+    "links": {
+      "live": "https://mobile-heaven-server.vercel.app/",
+      "client": "https://github.com/rakibul58/phone-heaven-client",
+      "server": "https://github.com/rakibul58/phone-heaven-server"
+    }
   }
 ]
