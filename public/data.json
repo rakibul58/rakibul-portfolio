@@ -519,5 +519,26 @@
       "client": "https://github.com/rakibul58/phone-heaven-client",
       "server": "https://github.com/rakibul58/phone-heaven-server"
     }
+  },
+  {
+    "id": 12,
+    "title": "BorrowVerse",
+    "description": "BorrowVerse is a comprehensive library management system backend with features for borrowing and managing members and books. Users borrow books, return books and check overdue books.",
+    "longDescription": "Key features include:\n\n- Member Management: Create, update and delete members.\n- Book Management: Create, update and delete books.\n- Borrow and Return: Borrow books, return books and check overdue books.",
+    "media": [
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732773455/Untitled_design_ckvzzv.png"
+      }
+    ],
+    "username": "rakibul58",
+    "repo": "BorrowVerse",
+    "image": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732773455/Untitled_design_ckvzzv.png",
+    "technologies": ["Node", "Express", "PostgreSQL", "JWT", "Prisma"],
+    "category": "Backend",
+    "links": {
+      "live": "https://library-management-system-six-sage.vercel.app/",
+      "server": "https://github.com/rakibul58/BorrowVerse"
+    }
   }
 ]
