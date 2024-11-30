@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Layers } from "lucide-react";
+import { Layers, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 interface Project {
   id: string;
@@ -19,11 +20,13 @@ interface Project {
 }
 
 const categories = ["Frontend", "Backend", "Full Stack"];
+const PROJECTS_PER_PAGE = 6;
 
 export default function ProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState("Frontend");
   const [isVisible, setIsVisible] = useState(false);
   const [projects, setProjects] = useState<Project[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     // Replace with your actual project data fetching
@@ -49,8 +52,20 @@ export default function ProjectsSection() {
     return () => observer.disconnect();
   }, []);
 
+  // Reset page to 1 when category changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategory]);
+
   const filteredProjects = projects.filter(
     (project) => project.category === selectedCategory
+  );
+
+  // Paginate the filtered projects
+  const totalPages = Math.ceil(filteredProjects.length / PROJECTS_PER_PAGE);
+  const paginatedProjects = filteredProjects.slice(
+    (currentPage - 1) * PROJECTS_PER_PAGE,
+    currentPage * PROJECTS_PER_PAGE
   );
 
   const containerVariants = {
@@ -72,6 +87,10 @@ export default function ProjectsSection() {
         duration: 0.5,
       },
     },
+  };
+
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage);
   };
 
   return (
@@ -104,56 +123,87 @@ export default function ProjectsSection() {
           </div>
 
           {/* Projects Grid */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={isVisible ? "visible" : "hidden"}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {filteredProjects.map((project) => (
+          {paginatedProjects.length > 0 ? (
+            <>
               <motion.div
-                key={project.id}
-                variants={itemVariants}
-                whileHover={{ y: -5 }}
-                className="group"
+                variants={containerVariants}
+                initial="hidden"
+                animate={isVisible ? "visible" : "hidden"}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6"
               >
-                <Link to={`/projects/${project.id}`}>
-                  <Card className="overflow-hidden h-full hover:shadow-lg transition-shadow duration-300">
-                    <div className="relative">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full aspect-video object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <span className="text-white font-medium">
-                          View Details
-                        </span>
-                      </div>
-                    </div>
-                    <CardContent className="p-4">
-                      <h3 className="text-lg font-semibold mb-2">
-                        {project.title}
-                      </h3>
-                      <p className="text-muted-foreground text-sm line-clamp-2 mb-4">
-                        {project.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {project.technologies.map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
+                {paginatedProjects.map((project) => (
+                  <motion.div
+                    key={project.id}
+                    variants={itemVariants}
+                    whileHover={{ y: -5 }}
+                    className="group"
+                  >
+                    <Link to={`/projects/${project.id}`}>
+                      <Card className="overflow-hidden h-full hover:shadow-lg transition-shadow duration-300">
+                        <div className="relative">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full aspect-video object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span className="text-white font-medium">
+                              View Details
+                            </span>
+                          </div>
+                        </div>
+                        <CardContent className="p-4">
+                          <h3 className="text-lg font-semibold mb-2">
+                            {project.title}
+                          </h3>
+                          <p className="text-muted-foreground text-sm line-clamp-2 mb-4">
+                            {project.description}
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {project.technologies.map((tech) => (
+                              <span
+                                key={tech}
+                                className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  </motion.div>
+                ))}
               </motion.div>
-            ))}
-          </motion.div>
+
+              {/* Pagination Controls */}
+              <div className="flex justify-center items-center space-x-4">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  disabled={currentPage === 1}
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </Button>
+                <span className="text-sm">
+                  Page {currentPage} of {totalPages}
+                </span>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </div>
+            </>
+          ) : (
+            <p className="text-center text-muted-foreground">
+              No projects found in this category.
+            </p>
+          )}
         </CardContent>
       </Card>
     </div>
