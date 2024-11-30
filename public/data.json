@@ -442,7 +442,14 @@
     "username": "rakibul58",
     "repo": "phone-heaven-client",
     "image": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732364453/Screenshot_2024-11-23_145459_ltxxgn.png",
-    "technologies": ["React", "React Router DOM", "Firebase", "TailwindCSS", "DaisyUI", "Stripe"],
+    "technologies": [
+      "React",
+      "React Router DOM",
+      "Firebase",
+      "TailwindCSS",
+      "DaisyUI",
+      "Stripe"
+    ],
     "category": "Frontend",
     "links": {
       "live": "https://phone-heaven.web.app/",
@@ -539,6 +546,82 @@
     "links": {
       "live": "https://library-management-system-six-sage.vercel.app/",
       "server": "https://github.com/rakibul58/BorrowVerse"
+    }
+  },
+  {
+    "id": 13,
+    "title": "Dentist Fantastic - Client",
+    "description": "The Dentist Fantastic client is a React-based front-end application designed to provide users with a seamless interface for managing services, reviews, and user accounts for a dental clinic. It integrates Firebase authentication and ensures secure data handling with JWT-protected routes.",
+    "longDescription": "Key features include:\n\n- Member Management: Users can add new services to the system.\n- Logged-in users are required to add or modify services.\n- Users can review services, update reviews, and delete their reviews.",
+    "media": [
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732952044/Screenshot_2024-11-30_133348_vxeum7.png"
+      }
+    ],
+    "username": "rakibul58",
+    "repo": "dentist-fantastic-client",
+    "image": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732952044/Screenshot_2024-11-30_133348_vxeum7.png",
+    "technologies": [
+      "React",
+      "Tailwind CSS",
+      "DaisyUI",
+      "Firebase",
+      "React Router DOM"
+    ],
+    "category": "Frontend",
+    "links": {
+      "live": "https://dentist-fantastic.web.app/",
+      "client": "https://github.com/rakibul58/dentist-fantastic-client",
+      "server": "https://github.com/rakibul58/dentist-fantastic-server"
+    }
+  },
+  {
+    "id": 14,
+    "title": "Dentist Fantastic - Server",
+    "description": "The Dentist Fantastic server is a Node.js and Express-based backend application that powers the Dentist Fantastic platform. It provides secure APIs for managing services and user reviews, with data stored in MongoDB. JWT is used for securing private routes.",
+    "longDescription": "Key features include:\n\n- Service Management.\n- Review System.\n- Authentication.",
+    "media": [
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732952044/Screenshot_2024-11-30_133348_vxeum7.png"
+      }
+    ],
+    "username": "rakibul58",
+    "repo": "dentist-fantastic-server",
+    "image": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732952044/Screenshot_2024-11-30_133348_vxeum7.png",
+    "technologies": ["Node", "Express", "MongoDB", "JWT", "Cors"],
+    "category": "Backend",
+    "links": {
+      "live": "https://dentist-fantastic-server.vercel.app/",
+      "client": "https://github.com/rakibul58/dentist-fantastic-client",
+      "server": "https://github.com/rakibul58/dentist-fantastic-server"
+    }
+  },
+  {
+    "id": 15,
+    "title": "Quiz Master",
+    "description": "Quiz Master is a dynamic quiz application that provides users with interactive quizzes. The app dynamically loads quiz topics and questions from an API, offering a seamless and engaging experience for users.",
+    "longDescription": "Key features include:\n\n- Quiz topics are fetched dynamically from the API to provide fresh content.\n- Individual quizzes are loaded dynamically through unique links for each topic.\n- Users get instant feedback on whether their answer is correct or incorrect via toast notifications.",
+    "media": [
+      {
+        "type": "image",
+        "url": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732952469/Screenshot_2024-11-30_134041_sxddxi.png"
+      }
+    ],
+    "username": "rakibul58",
+    "repo": "quiz-master",
+    "image": "https://res.cloudinary.com/dk4zufod5/image/upload/v1732952469/Screenshot_2024-11-30_134041_sxddxi.png",
+    "technologies": [
+      "React",
+      "Tailwind CSS",
+      "API Integration",
+      "React Router DOM"
+    ],
+    "category": "Frontend",
+    "links": {
+      "live": "https://quizzmaster.netlify.app/",
+      "client": "https://github.com/rakibul58/quiz-master"
     }
   }
 ]
