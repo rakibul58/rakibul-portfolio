@@ -9,6 +9,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const isProjectDetails = location.pathname.startsWith("/projects/");
+  const isBlogDetails = location.pathname.startsWith("/blog/");
 
   const handleNavScroll = (sectionId: string) => {
     handleScroll(sectionId);
@@ -19,8 +20,7 @@ const Navbar = () => {
     { label: "About", scrollTo: "about" },
     { label: "Projects", scrollTo: "projects" },
     { label: "Experience", scrollTo: "experience" },
-    { label: "Education", scrollTo: "education" },
-    { label: "Github Stats", scrollTo: "github-stats" },
+    { label: "Blogs", scrollTo: "blogs" },
     { label: "Contact", scrollTo: "contact-section" },
   ];
 
@@ -63,7 +63,7 @@ const Navbar = () => {
           </div>
         )}
 
-        {isProjectDetails ? (
+        {isProjectDetails || isBlogDetails ? (
           <ul className="hidden sm:flex items-center gap-6">
             {" "}
             <Link

@@ -56,7 +56,7 @@ const About = () => {
         const response = await axios.get(
           `${import.meta.env.VITE_BASEURL}/about`
         );
-        console.log({ response: response.data });
+        // console.log({ response: response.data });
         setAboutData(response?.data?.data);
       } catch (err: any) {
         console.log({ err });

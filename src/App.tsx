@@ -3,6 +3,7 @@ import { Home, ProjectDetails } from "./pages";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+import BlogDetails from "./pages/BlogDetails";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -32,6 +33,19 @@ function App() {
                 transition={{ duration: 0.3 }}
               >
                 <ProjectDetails />
+              </motion.div>
+            }
+          />
+          <Route
+            path="/blog/:slug"
+            element={
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <BlogDetails />
               </motion.div>
             }
           />

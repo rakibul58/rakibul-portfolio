@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import {
   About,
+  Blogs,
   ContactSection,
   Education,
   Footer,
@@ -25,6 +26,7 @@ export default function Home() {
         <Professional_Experience />
         <Education />
         <GitHubStats username="rakibul58" />
+        <Blogs />
         <ContactSection />
         <Footer />
       </div>

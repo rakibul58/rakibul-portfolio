@@ -7,6 +7,7 @@ import GitHubStats from "./GithubStats";
 import ContactSection from "./ContactSection";
 import Footer from "./Footer";
 import Projects from "./Projects";
+import Blogs from "./Blogs";
 
 export {
   Navbar,
@@ -17,5 +18,6 @@ export {
   GitHubStats,
   ContactSection,
   Footer,
-  Projects
+  Projects,
+  Blogs,
 };
