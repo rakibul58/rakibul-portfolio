@@ -34,7 +34,6 @@ export default function Professional_Experience() {
 
       const response = await axios.get(url.toString());
       const { experience } = response.data.data;
-      console.log("Experience:", response.data.data);
 
       setExperience(experience);
     } catch (error) {
