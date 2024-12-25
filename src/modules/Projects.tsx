@@ -4,19 +4,28 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Layers, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import axios from "axios";
+import ProjectSkeleton from "@/components/ProjectSkeleton";
 
-interface Project {
-  id: string;
+interface IProject {
+  _id: string;
   title: string;
   description: string;
   image: string;
   technologies: string[];
   category: string;
+  slug: string;
   links: {
     live?: string;
     client?: string;
     server?: string;
   };
+}
+
+interface ProjectsResponse {
+  projects: IProject[];
+  totalPages: number;
+  currentPage: number;
 }
 
 const categories = ["Frontend", "Backend", "Full Stack"];
@@ -25,20 +34,40 @@ const PROJECTS_PER_PAGE = 6;
 export default function ProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState("Frontend");
   const [isVisible, setIsVisible] = useState(false);
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [projectsData, setProjectsData] = useState<ProjectsResponse>({
+    projects: [],
+    totalPages: 1,
+    currentPage: 1,
+  });
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const fetchProjects = async (page: number, category: string) => {
+    try {
+      setIsLoading(true);
+      const queryParams = new URLSearchParams({
+        page: page.toString(),
+        limit: PROJECTS_PER_PAGE.toString(),
+        category,
+        sort: "-createdAt",
+      });
+
+      const response = await axios.get(
+        `${import.meta.env.VITE_BASEURL}/projects?${queryParams}`
+      );
+
+      setProjectsData(response.data.data);
+      setError(null);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "An error occurred");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
-    // Replace with your actual project data fetching
-    const fetchProjects = async () => {
-      fetch("/data.json")
-        .then((response) => response.json())
-        .then((data) => setProjects(data))
-        .catch((error) => console.error("Error loading JSON data:", error));
-    };
-
-    fetchProjects();
-  }, []);
+    fetchProjects(1, selectedCategory);
+  }, [selectedCategory]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -52,21 +81,9 @@ export default function ProjectsSection() {
     return () => observer.disconnect();
   }, []);
 
-  // Reset page to 1 when category changes
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [selectedCategory]);
-
-  const filteredProjects = projects.filter(
-    (project) => project.category === selectedCategory
-  );
-
-  // Paginate the filtered projects
-  const totalPages = Math.ceil(filteredProjects.length / PROJECTS_PER_PAGE);
-  const paginatedProjects = filteredProjects.slice(
-    (currentPage - 1) * PROJECTS_PER_PAGE,
-    currentPage * PROJECTS_PER_PAGE
-  );
+  const handlePageChange = (newPage: number) => {
+    fetchProjects(newPage, selectedCategory);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -87,10 +104,6 @@ export default function ProjectsSection() {
         duration: 0.5,
       },
     },
-  };
-
-  const handlePageChange = (newPage: number) => {
-    setCurrentPage(newPage);
   };
 
   return (
@@ -122,8 +135,16 @@ export default function ProjectsSection() {
             ))}
           </div>
 
+          {/* Error State */}
+          {error && (
+            <div className="text-center text-red-500 mb-6">{error}</div>
+          )}
+
+          {/* Loading State */}
+          {isLoading && <ProjectSkeleton />}
+
           {/* Projects Grid */}
-          {paginatedProjects.length > 0 ? (
+          {!isLoading && projectsData.projects.length > 0 ? (
             <>
               <motion.div
                 variants={containerVariants}
@@ -131,14 +152,14 @@ export default function ProjectsSection() {
                 animate={isVisible ? "visible" : "hidden"}
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6"
               >
-                {paginatedProjects.map((project) => (
+                {projectsData.projects.map((project) => (
                   <motion.div
-                    key={project.id}
+                    key={project._id}
                     variants={itemVariants}
                     whileHover={{ y: -5 }}
                     className="group"
                   >
-                    <Link to={`/projects/${project.id}`}>
+                    <Link to={`/projects/${project._id}`}>
                       <Card className="overflow-hidden h-full hover:shadow-lg transition-shadow duration-300">
                         <div className="relative">
                           <img
@@ -181,28 +202,32 @@ export default function ProjectsSection() {
                 <Button
                   variant="outline"
                   size="icon"
-                  onClick={() => handlePageChange(currentPage - 1)}
-                  disabled={currentPage === 1}
+                  onClick={() => handlePageChange(projectsData.currentPage - 1)}
+                  disabled={projectsData.currentPage === 1}
                 >
                   <ChevronLeft className="h-4 w-4" />
                 </Button>
                 <span className="text-sm">
-                  Page {currentPage} of {totalPages}
+                  Page {projectsData.currentPage} of {projectsData.totalPages}
                 </span>
                 <Button
                   variant="outline"
                   size="icon"
-                  onClick={() => handlePageChange(currentPage + 1)}
-                  disabled={currentPage === totalPages}
+                  onClick={() => handlePageChange(projectsData.currentPage + 1)}
+                  disabled={
+                    projectsData.currentPage === projectsData.totalPages
+                  }
                 >
                   <ChevronRight className="h-4 w-4" />
                 </Button>
               </div>
             </>
           ) : (
-            <p className="text-center text-muted-foreground">
-              No projects found in this category.
-            </p>
+            !isLoading && (
+              <p className="text-center text-muted-foreground">
+                No projects found in this category.
+              </p>
+            )
           )}
         </CardContent>
       </Card>

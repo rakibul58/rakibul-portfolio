@@ -12,12 +12,41 @@ import {
   ChevronRight,
 } from "lucide-react";
 import ReactMarkdown, { Components } from "react-markdown";
+import axios from "axios";
+import ProjectDetailsSkeleton from "@/components/ProjectDetailsSkeleton";
+
+interface IProject {
+  _id: string;
+  title: string;
+  description: string;
+  longDescription: string;
+  image: string;
+  technologies: string[];
+  category: string;
+  slug: string;
+  media: Array<{
+    type: "youtube" | "video" | "image";
+    url: string;
+    videoId?: string;
+    thumbnail?: string;
+  }>;
+  links: {
+    live?: string;
+    client?: string;
+    server?: string;
+    github?: string;
+  };
+  username?: string;
+  repo?: string;
+}
 
 export default function ProjectDetails() {
-  const { id } = useParams();
-  const [project, setProject] = useState<any>(null);
+  const { id } = useParams<{ id: string }>();
+  const [project, setProject] = useState<IProject | null>(null);
   const [activeMediaIndex, setActiveMediaIndex] = useState(0);
   const [readme, setReadme] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const getYouTubeVideoId = (url: string) => {
     const regex =
@@ -26,7 +55,7 @@ export default function ProjectDetails() {
     return match?.[1] || "";
   };
 
-  const renderMedia = (media: any) => {
+  const renderMedia = (media: IProject["media"][0]) => {
     switch (media.type) {
       case "youtube": {
         const videoId = media.videoId || getYouTubeVideoId(media.url);
@@ -64,33 +93,60 @@ export default function ProjectDetails() {
   };
 
   useEffect(() => {
-    // Replace with your actual project data fetching
     const fetchProjectDetails = async () => {
-      fetch("/data.json")
-        .then((response) => response.json())
-        .then((data) => setProject(data[Number(id) - 1]))
-        .catch((error) => console.error("Error loading JSON data:", error));
-
       try {
-        let response = await fetch(
-          `https://raw.githubusercontent.com/${project.username}/${project.repo}/main/README.md`
+        setIsLoading(true);
+        const response = await axios.get(
+          `${import.meta.env.VITE_BASEURL}/projects/${id}`
         );
-        if (response.status === 404) {
-          response = await fetch(
-            `https://raw.githubusercontent.com/${project.username}/${project.repo}/main/readme.md`
-          );
+
+        const data: IProject = response?.data?.data;
+        console.log({ response });
+        setProject(data);
+
+        if (data.username && data.repo) {
+          try {
+            let readmeResponse = await fetch(
+              `https://raw.githubusercontent.com/${data.username}/${data.repo}/main/README.md`
+            );
+            if (readmeResponse.status === 404) {
+              readmeResponse = await fetch(
+                `https://raw.githubusercontent.com/${data.username}/${data.repo}/main/readme.md`
+              );
+            }
+            const text = await readmeResponse.text();
+            setReadme(text);
+          } catch (error) {
+            console.error("Error fetching README:", error);
+          }
         }
-        const text = await response.text();
-        setReadme(text);
-      } catch (error) {
-        console.error("Error fetching README:", error);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "An error occurred");
+      } finally {
+        setIsLoading(false);
       }
     };
 
-    fetchProjectDetails();
-  }, [id, project]);
+    if (id) {
+      fetchProjectDetails();
+    }
+  }, [id]);
 
-  if (!project) return null;
+  if (isLoading) {
+    return (
+      <div className="container mx-auto px-4 py-8 text-center">
+        <ProjectDetailsSkeleton />
+      </div>
+    );
+  }
+
+  if (error || !project) {
+    return (
+      <div className="container mx-auto px-4 py-8 mt-20 text-center text-red-500">
+        {error || "Project not found"}
+      </div>
+    );
+  }
 
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
