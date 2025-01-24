@@ -40,7 +40,7 @@ const HeroSection = () => {
 
   const handleResumeDownload = () => {
     const resumeUrl =
-      "https://drive.google.com/uc?export=download&id=1zepdHevgXSTUTlXcW9nDLGWAOo0ibuIh";
+      "https://drive.google.com/uc?export=download&id=1MN0Ah18IzEkXR-3xFQ-V2Qqa64aVh-Zw";
     window.open(resumeUrl, "_blank");
   };
 
