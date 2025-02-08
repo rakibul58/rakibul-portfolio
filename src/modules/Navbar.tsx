@@ -20,7 +20,7 @@ const Navbar = () => {
     { label: "About", scrollTo: "about" },
     { label: "Projects", scrollTo: "projects" },
     { label: "Experience", scrollTo: "experience" },
-    { label: "Blogs", scrollTo: "blogs" },
+    // { label: "Blogs", scrollTo: "blogs" },
     { label: "Contact", scrollTo: "contact-section" },
   ];
 

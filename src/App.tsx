@@ -3,7 +3,7 @@ import { Home, ProjectDetails } from "./pages";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
-import BlogDetails from "./pages/BlogDetails";
+// import BlogDetails from "./pages/BlogDetails";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -36,7 +36,7 @@ function App() {
               </motion.div>
             }
           />
-          <Route
+          {/* <Route
             path="/blog/:slug"
             element={
               <motion.div
@@ -48,7 +48,7 @@ function App() {
                 <BlogDetails />
               </motion.div>
             }
-          />
+          /> */}
         </Routes>
       </div>
     </Router>
