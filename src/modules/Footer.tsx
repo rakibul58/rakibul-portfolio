@@ -14,7 +14,7 @@ const Footer = () => {
     { icon: Github, href: "https://github.com/rakibul58", label: "GitHub" },
     {
       icon: Linkedin,
-      href: "www.linkedin.com/in/muhammed-rakibul-hasan",
+      href: "https://www.linkedin.com/in/muhammed-rakibul-hasan",
       label: "LinkedIn",
     },
     {
@@ -35,7 +35,7 @@ const Footer = () => {
     },
     {
       icon: DiscordIcon,
-      href: "https://instagram.com/rakibul14",
+      href: "https://discord.com/invite/CsqgsVVVvh",
       label: "Discord",
     },
   ];

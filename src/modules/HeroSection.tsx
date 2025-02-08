@@ -16,7 +16,7 @@ const HeroSection = () => {
     { icon: Github, href: "https://github.com/rakibul58", label: "GitHub" },
     {
       icon: Linkedin,
-      href: "www.linkedin.com/in/muhammed-rakibul-hasan",
+      href: "https://www.linkedin.com/in/muhammed-rakibul-hasan",
       label: "LinkedIn",
     },
     { icon: Mail, href: "mailto:muhammed.rakbul.hasan.1@gmail.com", label: "Email" },
@@ -33,7 +33,7 @@ const HeroSection = () => {
     },
     {
       icon: DiscordIcon,
-      href: "https://instagram.com/rakibul14",
+      href: "https://discord.com/invite/CsqgsVVVvh",
       label: "Discord",
     },
   ];
